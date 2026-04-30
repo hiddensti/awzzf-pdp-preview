@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWZZF Flow Form Wheels for Tesla Model 3/Y — Atomic Wheels</title>
+  <meta name="description" content="Pre-order AWZZF Flow Form Wheels for Tesla Model 3/Y. Lighter than cast, made by Atomic Wheels. Four finishes, two sizes. 10% Early Bird discount, ships end of July.">
+
+  <link rel="preconnect" href="https://atomic-wheels.com">
+  <link rel="preload" href="https://atomic-wheels.com/cdn/fonts/lato/lato_n4.b801d39df3e4e4cea9f0bb0fe7f96fe75afde62b.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://atomic-wheels.com/cdn/fonts/lato/lato_n7.b3d765f55e4dca0d2ce18ef2efdb6f5f25c84a32.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* ═════════════════════════════════════════
+       AWZZF PDP · v2 · Editorial / Dark Configurator
+       Variation axis vs v1: hero composition + dark stage + bigger product as centerpiece
+       ═════════════════════════════════════════ */
+
+    @font-face {
+      font-family: 'Lato';
+      font-weight: 400;
+      font-display: swap;
+      src: url('https://atomic-wheels.com/cdn/fonts/lato/lato_n4.b801d39df3e4e4cea9f0bb0fe7f96fe75afde62b.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Lato';
+      font-weight: 700;
+      font-display: swap;
+      src: url('https://atomic-wheels.com/cdn/fonts/lato/lato_n7.b3d765f55e4dca0d2ce18ef2efdb6f5f25c84a32.woff2') format('woff2');
+    }
+
+    :root {
+      --aw-red: #ee3d48;
+      --aw-red-dark: #d12f3a;
+      --aw-ink: #1c1c1c;
+      --aw-ink-soft: #282a2c;
+      --aw-mute: #6c757d;
+      --aw-line: #e9e9e9;
+      --aw-bg: #ffffff;
+      --aw-bg-alt: #fafafa;
+      --aw-bg-warm: #f7f5f3;
+      --aw-navy: #1d2c40;
+
+      /* dark stage tokens — v2 only */
+      --stage-bg: #0c0d10;
+      --stage-bg-2: #15171c;
+      --stage-text: #f5f5f6;
+      --stage-mute: #8a8d94;
+      --stage-line: rgba(255,255,255,0.10);
+      --stage-line-strong: rgba(255,255,255,0.20);
+
+      --font: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      --maxw: 1440px;
+      --t-fast: 160ms cubic-bezier(.4,0,.2,1);
+      --t-med: 320ms cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--font); font-size: 15px; line-height: 1.55; color: var(--aw-ink); background: var(--aw-bg); -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1.15; letter-spacing: -0.015em; }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+    /* announcement */
+    .announcement { background: var(--aw-red); color: #fff; text-align: center; font-size: 13px; letter-spacing: 0.02em; padding: 10px 16px; font-weight: 700; }
+    .announcement strong { font-weight: 700; }
+    .announcement-secondary { background: var(--aw-navy); color: #fff; text-align: center; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 16px; }
+    .announcement-secondary a { border-bottom: 1px solid rgba(255,255,255,.4); }
+
+    /* header — sticky, dark variant when over stage */
+    .header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--aw-line); transition: background var(--t-fast), border-color var(--t-fast); }
+    .header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; padding: 14px 0; }
+    .logo img { height: 38px; }
+    .nav { display: flex; gap: 22px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; justify-self: center; }
+    .nav a { padding: 6px 0; transition: color var(--t-fast); }
+    .nav a:hover { color: var(--aw-red); }
+    .header-icons { display: flex; gap: 18px; }
+    .icon-btn { background: none; border: none; padding: 6px; color: inherit; transition: color var(--t-fast); }
+    .icon-btn:hover { color: var(--aw-red); }
+    .icon-btn svg { width: 22px; height: 22px; }
+
+    /* ═══════ HERO STAGE (dark, full-bleed) ═══════ */
+    .stage {
+      background: var(--stage-bg);
+      color: var(--stage-text);
+      position: relative;
+      overflow: hidden;
+      padding: 56px 0 72px;
+    }
+    /* radial vignette glow */
+    .stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(238,61,72,0.10), transparent 60%);
+      pointer-events: none;
+    }
+    .stage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 60% at 50% 100%, rgba(255,255,255,0.04), transparent 70%);
+      pointer-events: none;
+    }
+    .stage-inner { position: relative; z-index: 1; }
+
+    .stage-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--aw-red);
+      padding: 8px 14px;
+      border: 1px solid var(--stage-line-strong);
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .stage-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--aw-red);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--aw-red);
+    }
+
+    .stage-headline {
+      font-size: clamp(38px, 5.6vw, 80px);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      max-width: 14ch;
+      margin-bottom: 14px;
+    }
+    .stage-headline .accent { color: var(--aw-red); }
+    .stage-sub {
+      font-size: 17px;
+      color: var(--stage-mute);
+      max-width: 56ch;
+      line-height: 1.55;
+      margin-bottom: 36px;
+    }
+    .stage-sub a { color: var(--stage-text); border-bottom: 1px solid var(--stage-line-strong); transition: border-color var(--t-fast); }
+    .stage-sub a:hover { border-color: var(--aw-red); color: var(--aw-red); }
+
+    /* the configurator — wheel image + controls */
+    .configurator {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 56px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .stage-image {
+      position: relative;
+      aspect-ratio: 1.05;
+      display: grid;
+      place-items: center;
+    }
+    .stage-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 55%, rgba(238,61,72,0.18), transparent 55%);
+      filter: blur(12px);
+    }
+    .stage-image::after {
+      content: '';
+      position: absolute;
+      bottom: 4%;
+      left: 12%;
+      right: 12%;
+      height: 24px;
+      background: radial-gradient(ellipse, rgba(0,0,0,0.7), transparent 75%);
+      filter: blur(8px);
+    }
+    .stage-image img {
+      position: relative;
+      width: 92%;
+      height: 92%;
+      object-fit: contain;
+      transition: opacity var(--t-med), transform 800ms cubic-bezier(.2,.8,.2,1);
+    }
+    .stage-image.swapping img { opacity: 0; transform: scale(0.96) rotate(-3deg); }
+
+    /* badges floating on stage */
+    .stage-badges {
+      position: absolute;
+      top: 0; left: 0;
+      display: flex; flex-direction: column; gap: 8px;
+      z-index: 2;
+    }
+    .stage-badge {
+      padding: 7px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      backdrop-filter: blur(8px);
+    }
+    .stage-badge.preorder {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid var(--stage-line-strong);
+    }
+    .stage-badge.save {
+      background: var(--aw-red);
+      color: #fff;
+    }
+
+    /* configurator panel */
+    .config-panel {
+      display: flex; flex-direction: column;
+      gap: 28px;
+    }
+
+    .config-block {
+      border-top: 1px solid var(--stage-line);
+      padding-top: 20px;
+    }
+    .config-block:first-child { border-top: none; padding-top: 0; }
+    .config-block-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .config-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stage-mute);
+    }
+    .config-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--stage-text);
+    }
+
+    /* size cards in dark theme */
+    .size-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .size-card {
+      padding: 16px 14px;
+      background: var(--stage-bg-2);
+      border: 1.5px solid var(--stage-line);
+      color: var(--stage-text);
+      border-radius: 6px;
+      text-align: left;
+      transition: all var(--t-fast);
+    }
+    .size-card:hover { border-color: var(--stage-line-strong); }
+    .size-card.active {
+      border-color: var(--aw-red);
+      background: linear-gradient(180deg, rgba(238,61,72,0.10), rgba(238,61,72,0.02));
+      box-shadow: 0 0 0 1px var(--aw-red);
+    }
+    .size-card .size-main { font-size: 16px; font-weight: 700; }
+    .size-card .size-sub { font-size: 11.5px; opacity: 0.65; margin-top: 4px; letter-spacing: 0.04em; font-family: 'SF Mono', ui-monospace, monospace; }
+
+    /* color swatches in dark theme */
+    .swatches-row {
+      display: flex; gap: 14px; flex-wrap: wrap;
+    }
+    .swatch {
+      position: relative;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--swatch);
+      cursor: pointer;
+      padding: 0;
+      border: 2px solid var(--stage-line);
+      transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+    }
+    .swatch:hover { transform: scale(1.06); }
+    .swatch.active {
+      border-color: #fff;
+      box-shadow: 0 0 0 2px var(--aw-red);
+    }
+
+    /* price block */
+    .price-stack {
+      display: flex; align-items: baseline; gap: 14px;
+      flex-wrap: wrap;
+    }
+    .price-stack .price-current {
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--stage-text);
+      letter-spacing: -0.02em;
+    }
+    .price-stack .price-was {
+      font-size: 17px;
+      color: var(--stage-mute);
+      text-decoration: line-through;
+    }
+    .price-stack .price-unit {
+      font-size: 12px; color: var(--stage-mute); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .price-savings {
+      display: inline-block;
+      background: rgba(238,61,72,0.18);
+      color: var(--aw-red);
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      margin-top: 8px;
+    }
+
+    /* CTA */
+    .cta-stack { display: grid; gap: 12px; }
+    .btn-stage {
+      width: 100%;
+      padding: 18px 22px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background var(--t-fast), transform var(--t-fast);
+      background: var(--aw-red);
+      color: #fff;
+      box-shadow: 0 12px 32px -16px rgba(238,61,72,0.5);
+    }
+    .btn-stage:hover { background: var(--aw-red-dark); }
+    .btn-stage:active { transform: scale(0.98); }
+    .partial-line {
+      font-size: 12.5px;
+      color: var(--stage-mute);
+      text-align: center;
+    }
+    .partial-line strong { color: var(--stage-text); }
+
+    /* ETA strip below configurator */
+    .eta-strip {
+      margin-top: 48px;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(238,61,72,0.10), rgba(238,61,72,0.04));
+      border: 1px solid rgba(238,61,72,0.30);
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .eta-icon {
+      width: 36px; height: 36px;
+      color: var(--aw-red);
+    }
+    .eta-text { color: var(--stage-text); }
+    .eta-text strong { color: var(--aw-red); }
+    .eta-text-secondary { color: var(--stage-mute); font-size: 13px; margin-top: 2px; }
+
+    /* trust mini-row inside stage */
+    .stage-trust {
+      display: flex; gap: 32px; flex-wrap: wrap;
+      padding: 28px 0 0;
+      margin-top: 48px;
+      border-top: 1px solid var(--stage-line);
+    }
+    .stage-trust-item {
+      display: flex; gap: 10px; align-items: center;
+      font-size: 12.5px;
+      color: var(--stage-mute);
+    }
+    .stage-trust-item svg { color: var(--aw-red); width: 18px; height: 18px; flex-shrink: 0; }
+    .stage-trust-item strong { color: var(--stage-text); font-weight: 700; }
+
+    /* ═══════ LIGHT MODULES BELOW (same content as v1, tweaked spacing) ═══════ */
+    section.module { padding: 96px 0; }
+    section.module.alt { background: var(--aw-bg-alt); }
+    .module-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--aw-red); margin-bottom: 14px; }
+    .module-title { font-size: clamp(28px, 3.4vw, 44px); max-width: 800px; margin-bottom: 18px; line-height: 1.1; letter-spacing: -0.02em; }
+    .module-lead { font-size: 17px; color: var(--aw-mute); max-width: 680px; margin-bottom: 56px; line-height: 1.5; }
+
+    /* why */
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .why-card {
+      padding: 36px 32px;
+      background: #fff;
+      border: 1px solid var(--aw-line);
+      border-radius: 10px;
+      transition: border-color var(--t-fast), transform var(--t-fast);
+    }
+    .why-card:hover { border-color: var(--aw-ink); transform: translateY(-3px); }
+    .why-card .why-icon { width: 48px; height: 48px; color: var(--aw-red); margin-bottom: 22px; }
+    .why-card h3 { font-size: 20px; margin-bottom: 10px; }
+    .why-card p { font-size: 14.5px; color: var(--aw-mute); margin: 0; line-height: 1.6; }
+
+    /* comparison — v2 styling: card-based vs table */
+    .compare-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .compare-card {
+      padding: 32px 28px;
+      border: 1px solid var(--aw-line);
+      border-radius: 10px;
+      background: #fff;
+      position: relative;
+    }
+    .compare-card.featured {
+      border: 2px solid var(--aw-red);
+      background: linear-gradient(180deg, rgba(238,61,72,0.04), rgba(238,61,72,0));
+    }
+    .compare-card.featured::before {
+      content: 'AWZZF';
+      position: absolute;
+      top: -12px; left: 28px;
+      background: var(--aw-red);
+      color: #fff;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border-radius: 3px;
+    }
+    .compare-card .ctype {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--aw-mute);
+      margin-bottom: 10px;
+    }
+    .compare-card.featured .ctype { color: var(--aw-red); }
+    .compare-card h3 {
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+    .compare-card .cprice {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--aw-ink);
+    }
+    .compare-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .compare-card li {
+      padding: 10px 0;
+      border-top: 1px solid var(--aw-line);
+      font-size: 13.5px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      color: var(--aw-mute);
+    }
+    .compare-card li strong {
+      color: var(--aw-ink);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    /* specs — v2: sticky column layout */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 64px;
+    }
+    .spec-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--aw-line);
+      font-size: 14.5px;
+    }
+    .spec-row dt { color: var(--aw-mute); font-weight: 700; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .spec-row dd { margin: 0; color: var(--aw-ink); }
+    .spec-row dd code { font-family: 'SF Mono', ui-monospace, monospace; font-size: 12.5px; background: var(--aw-bg-warm); padding: 2px 7px; border-radius: 3px; }
+    .spec-placeholder { display: inline-block; background: rgba(238,61,72,.08); color: var(--aw-red); padding: 1px 7px; border-radius: 3px; font-size: 12px; font-weight: 700; }
+
+    /* built for — v2: horizontal scroll on desktop too */
+    .builtfor-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .builtfor-card {
+      padding: 28px 24px;
+      border: 1px solid var(--aw-line);
+      border-radius: 10px;
+      background: #fff;
+      transition: border-color var(--t-fast), transform var(--t-fast);
+    }
+    .builtfor-card:hover { border-color: var(--aw-ink); transform: translateY(-2px); }
+    .builtfor-card .vehicle-name { font-weight: 700; font-size: 18px; margin-bottom: 6px; }
+    .builtfor-card .vehicle-fit { font-size: 13px; color: var(--aw-mute); }
+
+    /* lifestyle — v2: full-bleed grid with hover label */
+    .lifestyle-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .lifestyle-tile {
+      aspect-ratio: 1;
+      background: var(--stage-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform var(--t-fast);
+    }
+    .lifestyle-tile:hover { transform: translateY(-2px); }
+    .lifestyle-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 55%, rgba(238,61,72,0.20), transparent 55%);
+    }
+    .lifestyle-tile img {
+      position: relative;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      padding: 24px;
+    }
+    .lifestyle-tile .tile-label {
+      position: absolute;
+      bottom: 14px; left: 16px;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 5px 12px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      backdrop-filter: blur(6px);
+    }
+
+    /* FAQ */
+    .faq-list { max-width: 880px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--aw-line); }
+    .faq-item summary {
+      padding: 26px 0;
+      font-weight: 700;
+      font-size: 17px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      gap: 16px;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--aw-red);
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-answer { padding: 0 0 26px; color: var(--aw-mute); font-size: 15px; line-height: 1.7; max-width: 720px; }
+
+    /* related */
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .related-card {
+      background: #fff;
+      border: 1px solid var(--aw-line);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform var(--t-fast), box-shadow var(--t-fast);
+      cursor: pointer;
+      display: flex; flex-direction: column;
+    }
+    .related-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px -20px rgba(0,0,0,0.20); }
+    .related-card .related-img { aspect-ratio: 1.2; background: var(--aw-bg-warm); display: grid; place-items: center; padding: 24px; }
+    .related-card .related-img img { max-width: 80%; max-height: 80%; object-fit: contain; }
+    .related-card .related-body { padding: 22px 24px 26px; }
+    .related-card .related-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--aw-red); margin-bottom: 8px; }
+    .related-card h3 { font-size: 17px; margin-bottom: 8px; }
+    .related-card .related-fit { font-size: 13.5px; color: var(--aw-mute); margin-bottom: 14px; }
+    .related-card .related-price { font-weight: 700; font-size: 16px; }
+
+    /* footer */
+    .footer { background: var(--aw-ink); color: #c8c8c8; padding: 72px 0 32px; font-size: 13.5px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 48px; }
+    .footer h4 { color: #fff; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-brand img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 18px; }
+    .footer-brand p { color: #999; font-size: 13px; line-height: 1.6; }
+    .footer ul { list-style: none; padding: 0; margin: 0; }
+    .footer li { margin-bottom: 10px; }
+    .footer a { color: #c8c8c8; transition: color var(--t-fast); }
+    .footer a:hover { color: var(--aw-red); }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 12px; color: #888; }
+    .footer-social { display: flex; gap: 14px; }
+
+    /* mobile sticky cta */
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #fff;
+      border-top: 1px solid var(--aw-line);
+      padding: 12px 16px;
+      z-index: 90;
+      box-shadow: 0 -8px 24px -12px rgba(0,0,0,0.12);
+      align-items: center;
+      gap: 12px;
+    }
+    .mobile-cta .mc-price-current { font-size: 17px; font-weight: 700; }
+    .mobile-cta .mc-price-eta { font-size: 11px; color: var(--aw-mute); }
+    .mobile-cta .btn-stage { padding: 13px 18px; font-size: 13px; flex: 1; box-shadow: none; }
+
+    /* responsive */
+    @media (max-width: 1024px) {
+      .configurator { grid-template-columns: 1fr; gap: 36px; }
+      .stage-image { max-width: 540px; margin: 0 auto; }
+      .why-grid { grid-template-columns: 1fr; }
+      .compare-cards { grid-template-columns: 1fr; }
+      .builtfor-row { grid-template-columns: repeat(2, 1fr); }
+      .lifestyle-grid { grid-template-columns: repeat(2, 1fr); }
+      .related-grid { grid-template-columns: 1fr; }
+      .spec-grid { grid-template-columns: 1fr; gap: 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .nav { display: none; }
+      .header-inner { grid-template-columns: auto auto; }
+      .eta-strip { grid-template-columns: 1fr; text-align: left; gap: 14px; }
+    }
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      .stage { padding: 36px 0 56px; }
+      .stage-headline { font-size: 38px; }
+      .stage-sub { font-size: 15px; }
+      .price-stack .price-current { font-size: 32px; }
+      section.module { padding: 64px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .builtfor-row { grid-template-columns: 1fr; }
+      .lifestyle-grid { grid-template-columns: 1fr 1fr; }
+      .stage-trust { gap: 18px; }
+      body { padding-bottom: 76px; }
+      .mobile-cta { display: flex; }
+      .swatch { width: 48px; height: 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- announcement -->
+  <div class="announcement">
+    🚀 Pre-order AWZZF — extra <strong>10% off</strong> with Early Bird · ships end of July · Free US shipping over $100
+  </div>
+  <div class="announcement-secondary">
+    Big Discounts • Exclusive Wheel and Tire Deals • <a href="#">Shop Now</a>
+  </div>
+
+  <!-- header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo"><img src="assets/atomic-wheels-brand/logo_300x.webp" alt="Atomic Wheels"></a>
+      <nav class="nav">
+        <a href="#">Wheels</a><a href="#">Tire Sets</a><a href="#">Accessories</a>
+        <a href="#">Services</a><a href="#">Gallery</a><a href="#">Reviews</a>
+        <a href="#">Fitment</a><a href="#">Contact</a>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+        <button class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg></button>
+        <button class="icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.4 12a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 2-1.4L21 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ STAGE (dark hero) ═══ -->
+  <section class="stage">
+    <div class="container stage-inner">
+
+      <div class="stage-eyebrow">Atomic Wheels · Flow Form · Pre-order</div>
+      <h1 class="stage-headline">Built like forged.<br><span class="accent">Priced for daily.</span></h1>
+      <p class="stage-sub">AWZZF is our flow-formed wheel for Tesla Model 3 and Model Y — lighter than cast, made to AW spec, four hand-finished colors. Pre-order now and save 10% with Early Bird. <a href="#config">Configure yours below ↓</a></p>
+
+      <div class="configurator" id="config">
+
+        <!-- stage image -->
+        <div class="stage-image" id="stageImage">
+          <div class="stage-badges">
+            <span class="stage-badge preorder">Pre-order</span>
+            <span class="stage-badge save">Save 10% — Early Bird</span>
+          </div>
+          <img id="mainImage" src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png" alt="AWZZF in Satin Gunmetal">
+        </div>
+
+        <!-- config panel -->
+        <div class="config-panel">
+
+          <div class="config-block">
+            <div class="config-block-head">
+              <span class="config-label">Size</span>
+              <span class="config-value" id="sizeLabel">18″ × 8.5″ +35</span>
+            </div>
+            <div class="size-row" id="sizeGrid">
+              <button class="size-card active" data-size="18">
+                <div class="size-main">18″ × 8.5″</div>
+                <div class="size-sub">+35 · #18-8535</div>
+              </button>
+              <button class="size-card" data-size="19">
+                <div class="size-main">19″ × 9.5″</div>
+                <div class="size-sub">+35 · #19-9535</div>
+              </button>
+            </div>
+          </div>
+
+          <div class="config-block">
+            <div class="config-block-head">
+              <span class="config-label">Finish</span>
+              <span class="config-value" id="colorLabel">Satin Gunmetal</span>
+            </div>
+            <div class="swatches-row" id="swatches">
+              <button class="swatch active" data-color="Satin Gunmetal" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png" style="--swatch:#5b5d60;" aria-label="Satin Gunmetal"></button>
+              <button class="swatch" data-color="Satin Bronze" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png" style="--swatch:#8a6a3d;" aria-label="Satin Bronze"></button>
+              <button class="swatch" data-color="Gloss Black" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_un58tyun58tyun58-2.png" style="--swatch:linear-gradient(135deg,#0a0a0a,#2a2a2a);" aria-label="Gloss Black"></button>
+              <button class="swatch" data-color="Satin Black" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_8z3czq8z3czq8z3c.png" style="--swatch:#1a1a1a;" aria-label="Satin Black"></button>
+            </div>
+          </div>
+
+          <div class="config-block">
+            <div class="config-block-head">
+              <span class="config-label">Price · Early Bird</span>
+              <span class="config-value">per wheel</span>
+            </div>
+            <div class="price-stack">
+              <span class="price-current" id="priceCurrent">$311.85</span>
+              <span class="price-was" id="priceWas">$346.50</span>
+            </div>
+            <span class="price-savings" id="priceSavings">You save $34.65 per wheel</span>
+          </div>
+
+          <div class="cta-stack">
+            <button class="btn-stage" id="reserveBtn">Reserve — Pre-order with 10% off</button>
+            <p class="partial-line">Or <strong>$10 per wheel</strong> partial payment — pay rest when wheels ship.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ETA strip -->
+      <div class="eta-strip">
+        <svg class="eta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3 3"/>
+        </svg>
+        <div class="eta-text">
+          Estimated delivery <strong>end of July</strong>. Remaining balance charged when wheels arrive at our Denton, TX warehouse.
+          <div class="eta-text-secondary">Early Bird pre-orders ship in the order they were placed.</div>
+        </div>
+        <a href="#" style="color:var(--stage-text); border-bottom: 1px solid var(--stage-line-strong); font-size: 13px; padding-bottom: 2px;">Check fitment →</a>
+      </div>
+
+      <!-- inline trust -->
+      <div class="stage-trust">
+        <div class="stage-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/></svg>
+          <span><strong>Lifetime warranty</strong> — same as forged AWZZ</span>
+        </div>
+        <div class="stage-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h18M3 12l4-4M3 12l4 4"/></svg>
+          <span><strong>50% off replacement</strong> on accidental damage</span>
+        </div>
+        <div class="stage-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="14" height="10" rx="1"/><path d="M16 10h4l2 4v3h-6"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          <span><strong>Free US shipping</strong> over $100</span>
+        </div>
+        <div class="stage-trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+          <span><strong>Tesla 3/Y fitment-tested</strong></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- why flow-form -->
+  <section class="module">
+    <div class="container">
+      <div class="module-eyebrow">Why Flow-Form</div>
+      <h2 class="module-title">The middle path between cast and forged — without the compromises.</h2>
+      <p class="module-lead">Flow-forming starts with a cast wheel and spins the rim under heat and pressure. The aluminum compresses and aligns, the rim densifies, and we use less material for the same strength. Lighter wheel, stronger rim, price that doesn't scare anyone off.</p>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M5 8l7-6 7 6M5 16l7 6 7-6"/></svg>
+          <h3>Lighter than cast</h3>
+          <p>Less unsprung weight — quicker turn-in, better acceleration, improved range on EVs. Densification during flow-forming lets us cut material while keeping the same load rating.</p>
+        </div>
+        <div class="why-card">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Stronger on the rim</h3>
+          <p>Spin-forming aligns the aluminum grain along the rim — the part that takes pothole and curb impact. Fatigue resistance closer to forged at a flow-form price.</p>
+        </div>
+        <div class="why-card">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <h3>AW QC, AW warranty</h3>
+          <p>Same testing, same fitment library, same Lifetime Structural Warranty as forged AWZZ. Hub-centric fit, AW center cap, TPMS-ready bore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- comparison — v2 card style -->
+  <section class="module alt">
+    <div class="container">
+      <div class="module-eyebrow">Where AWZZF sits</div>
+      <h2 class="module-title">Cast → Flow Form → Forged</h2>
+      <p class="module-lead">A truthful comparison — no fake percentages. Here's where AWZZF fits in our line and the broader wheel market.</p>
+
+      <div class="compare-cards">
+        <div class="compare-card">
+          <div class="ctype">Entry tier</div>
+          <h3>Cast Wheels</h3>
+          <div class="cprice">~$200–$300 / wheel</div>
+          <ul>
+            <li>Process <strong>Poured into mold</strong></li>
+            <li>Weight <strong>Heaviest</strong></li>
+            <li>Rim strength <strong>Standard</strong></li>
+            <li>In AW lineup <strong>Not offered</strong></li>
+          </ul>
+        </div>
+        <div class="compare-card featured">
+          <div class="ctype">Flow form</div>
+          <h3>AWZZF</h3>
+          <div class="cprice">$346.50 – $410 / wheel</div>
+          <ul>
+            <li>Process <strong>Cast + spin-formed</strong></li>
+            <li>Weight <strong>Lighter</strong></li>
+            <li>Rim strength <strong>Densified</strong></li>
+            <li>In AW lineup <strong>This product</strong></li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <div class="ctype">Premium tier</div>
+          <h3>AWZZ Forged</h3>
+          <div class="cprice">From $615 / wheel</div>
+          <ul>
+            <li>Process <strong>Pressed from billet</strong></li>
+            <li>Weight <strong>Lightest</strong></li>
+            <li>Rim strength <strong>Highest</strong></li>
+            <li>In AW lineup <strong>Top tier</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- specs -->
+  <section class="module">
+    <div class="container">
+      <div class="module-eyebrow">Technical</div>
+      <h2 class="module-title">Specifications</h2>
+
+      <dl class="spec-grid">
+        <div class="spec-row"><dt>Construction</dt><dd>Flow-formed aluminum (cast + spin-formed)</dd></div>
+        <div class="spec-row"><dt>Available sizes</dt><dd>18″ × 8.5″ +35 · 19″ × 9.5″ +35</dd></div>
+        <div class="spec-row"><dt>SKU codes</dt><dd><code>#18-8535</code> · <code>#19-9535</code></dd></div>
+        <div class="spec-row"><dt>Bolt pattern</dt><dd>5 × 114.3 (Tesla Model 3/Y)</dd></div>
+        <div class="spec-row"><dt>Center bore</dt><dd>64.1 mm <span class="spec-placeholder">verify w/ factory</span></dd></div>
+        <div class="spec-row"><dt>Load rating</dt><dd><span class="spec-placeholder">to be confirmed</span></dd></div>
+        <div class="spec-row"><dt>Weight per wheel</dt><dd><span class="spec-placeholder">to be confirmed</span></dd></div>
+        <div class="spec-row"><dt>Finishes</dt><dd>Gloss Black · Satin Black · Satin Bronze · Satin Gunmetal</dd></div>
+        <div class="spec-row"><dt>Center cap</dt><dd>AW logo, hub-centric, included</dd></div>
+        <div class="spec-row"><dt>TPMS</dt><dd>Compatible · sensors sold separately</dd></div>
+        <div class="spec-row"><dt>Warranty</dt><dd>Lifetime structural · 50% off replacement on accidental damage</dd></div>
+        <div class="spec-row"><dt>Estimated delivery</dt><dd>End of July (pre-order)</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- built for -->
+  <section class="module alt">
+    <div class="container">
+      <div class="module-eyebrow">Built for</div>
+      <h2 class="module-title">Tesla Model 3 and Model Y</h2>
+      <p class="module-lead">AWZZF is engineered for Tesla 3/Y specs out of the box — bolt pattern, center bore, and offset all match. Use the fitment guide to verify your trim and year.</p>
+
+      <div class="builtfor-row">
+        <div class="builtfor-card"><div class="vehicle-name">Model 3</div><div class="vehicle-fit">2017–2025 · all trims</div></div>
+        <div class="builtfor-card"><div class="vehicle-name">Model 3 Performance</div><div class="vehicle-fit">2018–2025 · brake clearance verified</div></div>
+        <div class="builtfor-card"><div class="vehicle-name">Model Y</div><div class="vehicle-fit">2020–2025 · all trims</div></div>
+        <div class="builtfor-card"><div class="vehicle-name">Model Y Performance</div><div class="vehicle-fit">2020–2025 · staggered 19″ recommended</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- lifestyle -->
+  <section class="module">
+    <div class="container">
+      <div class="module-eyebrow">All four finishes</div>
+      <h2 class="module-title">See AWZZF in every color</h2>
+      <p class="module-lead">Real factory renders. Lifestyle photography on installed cars coming after first deliveries.</p>
+
+      <div class="lifestyle-grid">
+        <div class="lifestyle-tile">
+          <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png" alt="Satin Gunmetal">
+          <div class="tile-label">Satin Gunmetal</div>
+        </div>
+        <div class="lifestyle-tile">
+          <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png" alt="Satin Bronze">
+          <div class="tile-label">Satin Bronze</div>
+        </div>
+        <div class="lifestyle-tile">
+          <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_un58tyun58tyun58-2.png" alt="Gloss Black">
+          <div class="tile-label">Gloss Black</div>
+        </div>
+        <div class="lifestyle-tile">
+          <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_8z3czq8z3czq8z3c.png" alt="Satin Black">
+          <div class="tile-label">Satin Black</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="module alt">
+    <div class="container">
+      <div class="module-eyebrow">FAQ</div>
+      <h2 class="module-title">Pre-order, finishes, fit</h2>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>What is flow-forming, in plain English?</summary>
+          <div class="faq-answer">A flow-formed wheel starts as a cast blank, then spins on a mandrel while rollers press the rim section under heat. The aluminum grain stretches and compresses, the rim becomes denser and stronger than the original cast, and we end up using less material to hit the same load rating. Net effect: lighter wheel, stronger rim, price between cast and forged.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How does AWZZF compare to AWZZ in real driving?</summary>
+          <div class="faq-answer">AWZZ (forged) is still the lightest and stiffest wheel we make — it's the choice for a track car or someone who hits curbs hard. AWZZF closes most of the gap for a daily-driven Model 3/Y while costing meaningfully less. If your priorities are looks, daily comfort, and not breaking the bank, AWZZF is the right call.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What's the warranty?</summary>
+          <div class="faq-answer">Lifetime Structural Warranty against manufacturing defects, plus our 50%-off accidental-damage replacement program. Same coverage as the forged AWZZ line.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Will my finish chip or fade?</summary>
+          <div class="faq-answer">All four finishes are powder-coated and clear-coated. Normal driving care and standard wheel-safe cleaners (no acid wheel cleaners) will keep them looking factory for years. Pothole or curb damage is covered by the 50% replacement program, not the structural warranty.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I order a custom size or finish?</summary>
+          <div class="faq-answer">For non-standard sizes or finishes outside the four shown, contact us — we run custom orders through a 9-step factory process with full prepayment. Lead time is typically longer than the AWZZF pre-order window.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What does "Estimated delivery end of July" mean exactly?</summary>
+          <div class="faq-answer">Wheels ship to our Denton, TX warehouse from the factory by end of July. Once they land, we charge the remaining balance (if you used the $10/wheel partial payment) and ship to you within 2 business days. Early Bird pre-orders ship in the order they were placed.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- related -->
+  <section class="module">
+    <div class="container">
+      <div class="module-eyebrow">You might also like</div>
+      <h2 class="module-title">More from Atomic Wheels</h2>
+      <div class="related-grid">
+        <a class="related-card" href="#">
+          <div class="related-img"><img src="assets/atomic-wheels-brand/awzz-reference-1.jpg" alt="AWZZ"></div>
+          <div class="related-body">
+            <div class="related-tag">Forged · Premium</div>
+            <h3>AWZZ Forged Wheels</h3>
+            <p class="related-fit">For Tesla Model 3/Y · 18″–21″</p>
+            <span class="related-price">From $615 / wheel</span>
+          </div>
+        </a>
+        <a class="related-card" href="#">
+          <div class="related-img"><img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_8z3czq8z3czq8z3c.png" alt="AWZZF for BMW F30"></div>
+          <div class="related-body">
+            <div class="related-tag">Flow Form</div>
+            <h3>AWZZF for BMW F30/F10/E90</h3>
+            <p class="related-fit">Same design, BMW fitment</p>
+            <span class="related-price">From $365 / wheel</span>
+          </div>
+        </a>
+        <a class="related-card" href="#">
+          <div class="related-img"><img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png" alt="AWZZF for BMW G20"></div>
+          <div class="related-body">
+            <div class="related-tag">Flow Form</div>
+            <h3>AWZZF for BMW G20/G30</h3>
+            <p class="related-fit">G-chassis BMW fitment</p>
+            <span class="related-price">From $365 / wheel</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/atomic-wheels-brand/logo_300x.webp" alt="Atomic Wheels">
+          <p>Premium custom forged & flow-form wheels. Engineered, QC'd, and warrantied by Atomic Wheels in Denton, TX.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul><li><a href="#">Wheels</a></li><li><a href="#">Tire Sets</a></li><li><a href="#">Accessories</a></li><li><a href="#">Photo Gallery</a></li><li><a href="#">Customer Reviews</a></li></ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul><li><a href="#">Fitment Guides</a></li><li><a href="#">Warranty</a></li><li><a href="#">Shipping</a></li><li><a href="#">Returns & Exchange</a></li><li><a href="#">Contact Us</a></li></ul>
+        </div>
+        <div>
+          <h4>Atomic Wheels</h4>
+          <ul><li>4408 Worthington Dr</li><li>Denton, TX</li><li><a href="mailto:info@atomic-wheels.com">info@atomic-wheels.com</a></li></ul>
+          <div class="footer-social" style="margin-top:14px;">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M9 8H6v4h3v12h5V12h3.6l.4-4h-4V6c0-.6.4-1 1-1h3V1h-4c-2.8 0-5 2.2-5 5v2z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M22 8.5c-.2-1.6-1.4-2.8-3-3C16.8 5 12 5 12 5s-4.8 0-7 .5c-1.6.2-2.8 1.4-3 3C1.5 10.5 1.5 12 1.5 12s0 1.5.5 3.5c.2 1.6 1.4 2.8 3 3 2.2.5 7 .5 7 .5s4.8 0 7-.5c1.6-.2 2.8-1.4 3-3 .5-2 .5-3.5.5-3.5s0-1.5-.5-3.5zM10 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright © 2026 Atomic Wheels</span>
+        <span>Prototype · v2 · 2026-04-29 · dark editorial</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- mobile sticky -->
+  <div class="mobile-cta">
+    <div>
+      <div class="mc-price-current" id="mcPrice">$311.85</div>
+      <div class="mc-price-eta">Ships end of July</div>
+    </div>
+    <button class="btn-stage">Reserve</button>
+  </div>
+
+  <script>
+    /* PROTOTYPE pricing — verify against Shopify */
+    const PRICES = {
+      '18|Satin Black':    346.50,
+      '18|Satin Gunmetal': 346.50,
+      '18|Satin Bronze':   369.00,
+      '18|Gloss Black':    369.00,
+      '19|Satin Black':    385.00,
+      '19|Satin Gunmetal': 385.00,
+      '19|Satin Bronze':   410.00,
+      '19|Gloss Black':    410.00,
+    };
+
+    const state = { size: '18', color: 'Satin Gunmetal' };
+    const fmt = n => '$' + n.toFixed(2);
+
+    function updatePrice() {
+      const base = PRICES[state.size + '|' + state.color];
+      const earlyBird = base * 0.9;
+      const savings = base - earlyBird;
+      document.getElementById('priceCurrent').textContent = fmt(earlyBird);
+      document.getElementById('priceWas').textContent = fmt(base);
+      document.getElementById('priceSavings').textContent = `You save ${fmt(savings)} per wheel`;
+      document.getElementById('mcPrice').textContent = fmt(earlyBird);
+    }
+
+    function updateImage(src, color) {
+      const stage = document.getElementById('stageImage');
+      const img = document.getElementById('mainImage');
+      stage.classList.add('swapping');
+      setTimeout(() => {
+        img.src = src;
+        img.alt = 'AWZZF in ' + color;
+        stage.classList.remove('swapping');
+      }, 220);
+    }
+
+    document.querySelectorAll('#sizeGrid .size-card').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#sizeGrid .size-card').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.size = btn.dataset.size;
+        document.getElementById('sizeLabel').textContent =
+          state.size === '18' ? '18″ × 8.5″ +35' : '19″ × 9.5″ +35';
+        updatePrice();
+      });
+    });
+
+    document.querySelectorAll('#swatches .swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        document.querySelectorAll('#swatches .swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        state.color = swatch.dataset.color;
+        document.getElementById('colorLabel').textContent = state.color;
+        updateImage(swatch.dataset.img, state.color);
+        updatePrice();
+      });
+    });
+
+    document.getElementById('reserveBtn').addEventListener('click', () => {
+      const earlyBird = PRICES[state.size + '|' + state.color] * 0.9;
+      alert(`PROTOTYPE — Reserve flow:\n\n${state.size}″ × ${state.size === '18' ? '8.5' : '9.5'}″ +35\nFinish: ${state.color}\nEarly Bird price: ${fmt(earlyBird)} per wheel\n\n(In production: opens cart with selected variant.)`);
+    });
+
+    updatePrice();
+  </script>
+</body>
+</html>

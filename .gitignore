@@ -1,0 +1,11 @@
+# raw HTML scraped from atomic-wheels.com — not needed in deployed site
+assets/atomic-wheels-brand/awzz-pdp.html
+assets/atomic-wheels-brand/awzzf-pdp.html
+assets/atomic-wheels-brand/homepage.html
+
+# macOS
+.DS_Store
+
+# tmp
+*.tmp
+*.swp

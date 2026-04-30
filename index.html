@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWZZF PDP — Two Variations · Atomic Wheels</title>
+  <link rel="preload" href="https://atomic-wheels.com/cdn/fonts/lato/lato_n4.b801d39df3e4e4cea9f0bb0fe7f96fe75afde62b.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://atomic-wheels.com/cdn/fonts/lato/lato_n7.b3d765f55e4dca0d2ce18ef2efdb6f5f25c84a32.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Lato'; font-weight: 400; font-display: swap;
+      src: url('https://atomic-wheels.com/cdn/fonts/lato/lato_n4.b801d39df3e4e4cea9f0bb0fe7f96fe75afde62b.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Lato'; font-weight: 700; font-display: swap;
+      src: url('https://atomic-wheels.com/cdn/fonts/lato/lato_n7.b3d765f55e4dca0d2ce18ef2efdb6f5f25c84a32.woff2') format('woff2');
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; min-height: 100vh; }
+    body {
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0c0d10;
+      color: #f5f5f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 64px 24px;
+      min-height: 100vh;
+    }
+    .logo { height: 44px; margin-bottom: 36px; filter: brightness(0) invert(1); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: #ee3d48;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+    .badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: #ee3d48; border-radius: 50%;
+      box-shadow: 0 0 10px #ee3d48;
+    }
+    h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin: 0 0 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .lead {
+      font-size: 16px; color: #8a8d94;
+      max-width: 600px; text-align: center;
+      line-height: 1.55;
+      margin: 0 0 56px;
+    }
+    .picker {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .card {
+      background: #15171c;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 240ms cubic-bezier(.2,.8,.2,1), border-color 200ms, box-shadow 240ms;
+      display: flex; flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #ee3d48;
+      box-shadow: 0 20px 50px -20px rgba(238,61,72,0.35);
+    }
+    .card-preview {
+      aspect-ratio: 1.4;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, #1a1c22, #0c0d10);
+    }
+    .card-preview img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    .card-tag {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      padding: 6px 12px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      border-radius: 4px;
+    }
+    .card-body { padding: 28px 28px 32px; }
+    .card-title {
+      font-size: 22px; font-weight: 700;
+      margin: 0 0 10px;
+    }
+    .card-desc {
+      font-size: 14px; color: #8a8d94;
+      line-height: 1.55;
+      margin: 0 0 18px;
+    }
+    .card-meta {
+      display: flex; flex-wrap: wrap;
+      gap: 8px;
+    }
+    .card-chip {
+      font-size: 11px;
+      background: rgba(255,255,255,0.06);
+      color: #c8c8c8;
+      padding: 5px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .card-cta {
+      margin-top: 22px;
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #ee3d48; font-weight: 700;
+      font-size: 13px; letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .card-cta::after { content: '→'; font-size: 16px; transition: transform 200ms; }
+    .card:hover .card-cta::after { transform: translateX(4px); }
+
+    .footer-note {
+      margin-top: 56px; max-width: 700px;
+      text-align: center;
+      color: #6a6d74; font-size: 13px;
+      line-height: 1.7;
+    }
+    .footer-note strong { color: #c8c8c8; }
+    .footer-note code {
+      font-family: 'SF Mono', ui-monospace, monospace;
+      background: rgba(255,255,255,0.06);
+      padding: 2px 7px; border-radius: 3px; font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .picker { grid-template-columns: 1fr; gap: 18px; }
+      h1 { font-size: 28px; }
+      body { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <img src="assets/atomic-wheels-brand/logo_300x.webp" alt="Atomic Wheels" class="logo">
+
+  <div class="badge">Internal · prototype review</div>
+  <h1>AWZZF PDP — pick a direction</h1>
+  <p class="lead">Two design directions for the AWZZF Tesla 3/Y product page. Same product, same data, different visual axis. Click in, click around, send feedback.</p>
+
+  <div class="picker">
+
+    <a class="card" href="v1.html">
+      <div class="card-preview">
+        <span class="card-tag">v1 · Standard</span>
+        <img src="v1-desktop.png" alt="v1 preview">
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">v1 · Shopify-style PDP</h2>
+        <p class="card-desc">Conventional e-commerce layout. Light theme, gallery left + info right, trust strip, comparison table. Drops directly into the existing PDP template — minimum risk, fastest to ship.</p>
+        <div class="card-meta">
+          <span class="card-chip">Light theme</span>
+          <span class="card-chip">Gallery + info split</span>
+          <span class="card-chip">Comparison table</span>
+          <span class="card-chip">Production-ready</span>
+        </div>
+        <div class="card-cta">Open v1</div>
+      </div>
+    </a>
+
+    <a class="card" href="v2.html">
+      <div class="card-preview">
+        <span class="card-tag">v2 · Editorial</span>
+        <img src="v2-desktop.png" alt="v2 preview">
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">v2 · Dark configurator hero</h2>
+        <p class="card-desc">Premium editorial direction. Dark hero stage with the wheel as centerpiece, configurator-panel for size + finish, comparison cards instead of table. Stronger pre-order moment, more launch-page energy.</p>
+        <div class="card-meta">
+          <span class="card-chip">Dark hero</span>
+          <span class="card-chip">Configurator panel</span>
+          <span class="card-chip">Comparison cards</span>
+          <span class="card-chip">Launch energy</span>
+        </div>
+        <div class="card-cta">Open v2</div>
+      </div>
+    </a>
+
+  </div>
+
+  <p class="footer-note">
+    Built for AWZZF pre-order launch. Real product data from <code>atomic-wheels.com</code>: 2 sizes × 4 finishes, 8 variants, $346.50–$410 / wheel, ships end of July with 10% Early Bird discount.<br><br>
+    <strong>Open questions for the team:</strong> hero copy direction · variant→price mapping · spec table values (load rating, weight per wheel) · Tesla year coverage.
+  </p>
+
+</body>
+</html>
