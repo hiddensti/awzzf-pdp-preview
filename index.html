@@ -59,9 +59,9 @@
     }
     .picker {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 1100px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      max-width: 1320px;
       width: 100%;
     }
     .card {
@@ -146,6 +146,9 @@
       padding: 2px 7px; border-radius: 3px; font-size: 12px;
     }
 
+    @media (max-width: 1024px) {
+      .picker { grid-template-columns: 1fr; gap: 18px; }
+    }
     @media (max-width: 768px) {
       .picker { grid-template-columns: 1fr; gap: 18px; }
       h1 { font-size: 28px; }
@@ -159,7 +162,7 @@
 
   <div class="badge">Internal · prototype review</div>
   <h1>AWZZF PDP — pick a direction</h1>
-  <p class="lead">Two design directions for the AWZZF Tesla 3/Y product page. Same product, same data, different visual axis. Click in, click around, send feedback.</p>
+  <p class="lead">Three design directions for the AWZZF Tesla 3/Y product page. Same product, same data, different visual axis. Click in, click around, send feedback.</p>
 
   <div class="picker">
 
@@ -188,14 +191,31 @@
       </div>
       <div class="card-body">
         <h2 class="card-title">v2 · Dark configurator hero</h2>
-        <p class="card-desc">Premium editorial direction. Dark hero stage with the wheel as centerpiece, configurator-panel for size + finish, comparison cards instead of table. Stronger pre-order moment, more launch-page energy.</p>
+        <p class="card-desc">Premium editorial direction. Dark hero stage with the wheel as centerpiece, configurator-panel for size + finish, comparison cards instead of table.</p>
         <div class="card-meta">
           <span class="card-chip">Dark hero</span>
           <span class="card-chip">Configurator panel</span>
-          <span class="card-chip">Comparison cards</span>
           <span class="card-chip">Launch energy</span>
         </div>
         <div class="card-cta">Open v2</div>
+      </div>
+    </a>
+
+    <a class="card" href="v3.html">
+      <div class="card-preview">
+        <span class="card-tag">v3 · Cinematic</span>
+        <img src="v3-desktop.png" alt="v3 preview">
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">v3 · Image-led / cinematic</h2>
+        <p class="card-desc">Less copy, more visual rhythm. Massive AWZZF display type, alternating warm/dark color stories, comparison spectrum, dramatic pre-order moment. Launch-page energy turned up.</p>
+        <div class="card-meta">
+          <span class="card-chip">Display type</span>
+          <span class="card-chip">Color stories</span>
+          <span class="card-chip">Less text</span>
+          <span class="card-chip">More visual</span>
+        </div>
+        <div class="card-cta">Open v3</div>
       </div>
     </a>
 

@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWZZF — Atomic Wheels</title>
+  <meta name="description" content="AWZZF Flow Form for Tesla Model 3/Y. Pre-order now.">
+
+  <link rel="preconnect" href="https://atomic-wheels.com">
+  <link rel="preload" href="https://atomic-wheels.com/cdn/fonts/lato/lato_n4.b801d39df3e4e4cea9f0bb0fe7f96fe75afde62b.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://atomic-wheels.com/cdn/fonts/lato/lato_n7.b3d765f55e4dca0d2ce18ef2efdb6f5f25c84a32.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* ═════════════════════════════════════════
+       AWZZF · v3 · Cinematic / image-led
+       Variation axis: less copy, more visual rhythm, alternating light/dark sections
+       ═════════════════════════════════════════ */
+
+    @font-face {
+      font-family: 'Lato'; font-weight: 400; font-display: swap;
+      src: url('https://atomic-wheels.com/cdn/fonts/lato/lato_n4.b801d39df3e4e4cea9f0bb0fe7f96fe75afde62b.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Lato'; font-weight: 700; font-display: swap;
+      src: url('https://atomic-wheels.com/cdn/fonts/lato/lato_n7.b3d765f55e4dca0d2ce18ef2efdb6f5f25c84a32.woff2') format('woff2');
+    }
+
+    :root {
+      --aw-red: #ee3d48;
+      --aw-red-dark: #d12f3a;
+      --aw-ink: #0e0e10;
+      --aw-mute: #6c757d;
+      --aw-line: #e9e9e9;
+      --aw-bg: #ffffff;
+      --aw-warm: #f4f1ec;
+      --aw-cream: #ebe4d8;
+      --stage-bg: #0c0d10;
+      --stage-text: #f5f5f6;
+      --stage-mute: #8a8d94;
+      --stage-line: rgba(255,255,255,0.10);
+      --font: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+      --maxw: 1440px;
+      --t-fast: 200ms cubic-bezier(.4,0,.2,1);
+      --t-slow: 600ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--font); font-size: 16px; line-height: 1.5; color: var(--aw-ink); background: var(--aw-bg); -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 700; line-height: 1; letter-spacing: -0.03em; }
+
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+    /* announcement */
+    .announcement { background: var(--aw-red); color: #fff; text-align: center; font-size: 13px; padding: 10px 16px; font-weight: 700; letter-spacing: 0.02em; }
+    .announcement-secondary { background: #1d2c40; color: #fff; text-align: center; font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; padding: 8px 16px; }
+
+    /* header */
+    .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--aw-line); }
+    .header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 32px; padding: 14px 0; }
+    .logo img { height: 38px; }
+    .nav { display: flex; gap: 22px; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; justify-self: center; }
+    .nav a { padding: 6px 0; transition: color var(--t-fast); }
+    .nav a:hover { color: var(--aw-red); }
+    .header-icons { display: flex; gap: 18px; }
+    .icon-btn { background: none; border: none; padding: 6px; color: inherit; transition: color var(--t-fast); }
+    .icon-btn:hover { color: var(--aw-red); }
+    .icon-btn svg { width: 22px; height: 22px; }
+
+    /* ═══════ HERO — cinematic full-viewport ═══════ */
+    .stage {
+      position: relative;
+      min-height: 92vh;
+      background: linear-gradient(135deg, #f4f1ec 0%, #e8dfd0 50%, #d9c8b0 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .stage::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 75% 50%, rgba(238,61,72,0.14), transparent 70%),
+        radial-gradient(ellipse 80% 60% at 30% 30%, rgba(255,255,255,0.40), transparent 60%);
+      pointer-events: none;
+    }
+    .stage-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 48px;
+      align-items: center;
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 32px;
+      z-index: 1;
+    }
+    .stage-text {
+      display: flex; flex-direction: column;
+      gap: 24px;
+      max-width: 540px;
+    }
+    .pre-chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--aw-ink);
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+      align-self: flex-start;
+    }
+    .pre-chip::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--aw-red); border-radius: 50%;
+      box-shadow: 0 0 10px var(--aw-red);
+    }
+    .stage-display {
+      font-size: clamp(72px, 12vw, 168px);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      color: var(--aw-ink);
+      margin: 0;
+    }
+    .stage-tagline {
+      font-size: clamp(18px, 1.6vw, 22px);
+      max-width: 36ch;
+      line-height: 1.4;
+      color: rgba(14,14,16,0.72);
+      margin: 0;
+    }
+    .stage-tagline strong { color: var(--aw-ink); font-weight: 700; }
+    .stage-meta {
+      display: flex; gap: 32px; flex-wrap: wrap;
+      margin-top: 20px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0,0,0,0.10);
+    }
+    .stage-meta-item {
+      display: flex; flex-direction: column;
+      gap: 4px;
+    }
+    .stage-meta-item .label {
+      font-size: 11px; letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(14,14,16,0.55);
+    }
+    .stage-meta-item .value {
+      font-size: 17px; font-weight: 700;
+      color: var(--aw-ink);
+    }
+    .stage-meta-item .value .accent { color: var(--aw-red); }
+
+    .stage-cta {
+      display: inline-flex;
+      padding: 18px 32px;
+      background: var(--aw-ink);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--t-fast), transform var(--t-fast);
+      align-self: flex-start;
+      margin-top: 12px;
+    }
+    .stage-cta:hover { background: var(--aw-red); }
+    .stage-cta:active { transform: scale(0.97); }
+    .stage-cta::after { content: ' →'; }
+
+    /* hero image */
+    .stage-image-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      max-height: 80vh;
+      display: grid; place-items: center;
+    }
+    .stage-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 8% 8% 4% 8%;
+      background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.18), transparent 60%);
+      filter: blur(20px);
+      z-index: 0;
+    }
+    .stage-image-wrap img {
+      position: relative;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      animation: heroIn 1200ms cubic-bezier(.2,.8,.2,1) both, heroFloat 7s ease-in-out 1.2s infinite;
+      z-index: 1;
+    }
+    @keyframes heroIn {
+      from { opacity: 0; transform: scale(0.92) translateY(20px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* tiny finish dots floating bottom */
+    .stage-dots {
+      position: absolute;
+      bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; gap: 12px;
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 100px;
+      border: 1px solid rgba(0,0,0,0.08);
+      z-index: 5;
+    }
+    .stage-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--c);
+      cursor: pointer;
+      border: 2px solid rgba(0,0,0,0);
+      transition: border-color var(--t-fast), transform var(--t-fast);
+    }
+    .stage-dot:hover { transform: scale(1.2); }
+    .stage-dot.active { border-color: var(--aw-ink); }
+
+    /* ═══════ COLOR STORIES — alternating full-width strips ═══════ */
+    .color-story {
+      padding: 120px 0;
+      overflow: hidden;
+    }
+    .color-story.dark {
+      background: var(--stage-bg);
+      color: var(--stage-text);
+    }
+    .color-story.warm { background: var(--aw-warm); }
+    .color-story.cream { background: var(--aw-cream); }
+    .color-story.bone { background: #f0ece4; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .story-grid.reverse > :first-child { order: 2; }
+
+    .story-image {
+      position: relative;
+      aspect-ratio: 1;
+      max-width: 560px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .story-image::before {
+      content: '';
+      position: absolute;
+      inset: 5%;
+      background: radial-gradient(ellipse at 50% 55%, var(--glow, rgba(238,61,72,0.18)), transparent 60%);
+      filter: blur(24px);
+      z-index: 0;
+    }
+    .story-image img {
+      position: relative;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    .story-text { max-width: 480px; }
+    .story-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--aw-red);
+      margin-bottom: 18px;
+    }
+    .color-story.dark .story-eyebrow { color: var(--aw-red); }
+    .story-title {
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1.02;
+      margin-bottom: 20px;
+      letter-spacing: -0.025em;
+    }
+    .story-copy {
+      font-size: 18px;
+      line-height: 1.5;
+      color: rgba(14,14,16,0.62);
+      margin: 0;
+    }
+    .color-story.dark .story-copy { color: var(--stage-mute); }
+    .color-story.dark .story-title { color: var(--stage-text); }
+
+    /* ═══════ COMPARISON SPECTRUM — single graphic ═══════ */
+    .spectrum-section {
+      padding: 140px 0;
+      background: #fff;
+    }
+    .spectrum-eyebrow {
+      text-align: center;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--aw-red);
+      margin-bottom: 18px;
+    }
+    .spectrum-title {
+      text-align: center;
+      font-size: clamp(36px, 4.5vw, 56px);
+      max-width: 800px;
+      margin: 0 auto 16px;
+      line-height: 1.05;
+    }
+    .spectrum-lead {
+      text-align: center;
+      font-size: 17px;
+      color: var(--aw-mute);
+      max-width: 540px;
+      margin: 0 auto 80px;
+    }
+
+    .spectrum {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .spectrum-col {
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+    }
+    .spectrum-col.featured {
+      background: var(--aw-ink);
+      color: var(--stage-text);
+      border-radius: 16px;
+      transform: scale(1.05);
+      box-shadow: 0 30px 70px -30px rgba(0,0,0,0.45);
+      z-index: 2;
+    }
+    .spectrum-col.featured::before {
+      content: 'AWZZF · Flow Form';
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--aw-red);
+      color: #fff;
+      padding: 6px 16px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      border-radius: 100px;
+    }
+    .spectrum-tier {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--aw-mute);
+      margin-bottom: 14px;
+    }
+    .spectrum-col.featured .spectrum-tier { color: var(--stage-mute); }
+    .spectrum-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: var(--aw-ink);
+    }
+    .spectrum-col.featured .spectrum-name { color: var(--stage-text); }
+    .spectrum-bars {
+      display: grid; gap: 16px;
+      margin: 28px 0;
+      text-align: left;
+    }
+    .spectrum-bar { display: grid; gap: 6px; }
+    .spectrum-bar-label {
+      display: flex; justify-content: space-between;
+      font-size: 11px; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--aw-mute);
+    }
+    .spectrum-col.featured .spectrum-bar-label { color: var(--stage-mute); }
+    .spectrum-bar-track {
+      height: 6px;
+      background: rgba(0,0,0,0.08);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .spectrum-col.featured .spectrum-bar-track { background: rgba(255,255,255,0.10); }
+    .spectrum-bar-fill {
+      height: 100%;
+      background: var(--aw-ink);
+      border-radius: 100px;
+    }
+    .spectrum-col.featured .spectrum-bar-fill { background: var(--aw-red); }
+    .spectrum-price {
+      font-size: 18px; font-weight: 700;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0,0,0,0.10);
+    }
+    .spectrum-col.featured .spectrum-price { border-top-color: rgba(255,255,255,0.15); color: var(--stage-text); }
+
+    /* ═══════ CONFIGURATOR — compact dark block ═══════ */
+    .config-section {
+      padding: 100px 0;
+      background: var(--stage-bg);
+      color: var(--stage-text);
+    }
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .config-image {
+      position: relative;
+      aspect-ratio: 1;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .config-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 55%, rgba(238,61,72,0.18), transparent 55%);
+      filter: blur(16px);
+    }
+    .config-image img {
+      position: relative;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      transition: opacity 320ms;
+    }
+    .config-text-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--aw-red); margin-bottom: 14px;
+    }
+    .config-text h3 {
+      font-size: clamp(34px, 4vw, 48px);
+      line-height: 1.05;
+      margin-bottom: 28px;
+      color: var(--stage-text);
+    }
+
+    .config-line {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--stage-line);
+      font-size: 14px;
+    }
+    .config-line .label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stage-mute); }
+    .config-line .value { font-weight: 700; color: var(--stage-text); }
+
+    .config-pickers {
+      display: grid; gap: 20px;
+      margin: 28px 0;
+    }
+    .config-row {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .pill {
+      padding: 10px 18px;
+      background: transparent;
+      color: var(--stage-text);
+      border: 1.5px solid var(--stage-line);
+      border-radius: 100px;
+      font-size: 13px; font-weight: 700;
+      cursor: pointer;
+      transition: all var(--t-fast);
+    }
+    .pill:hover { border-color: rgba(255,255,255,0.30); }
+    .pill.active { background: var(--aw-red); border-color: var(--aw-red); color: #fff; }
+    .swatch-pill {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 16px 8px 8px;
+    }
+    .swatch-pill::before {
+      content: ''; width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--c);
+      flex-shrink: 0;
+    }
+
+    .config-price {
+      display: flex; align-items: baseline; gap: 14px;
+      margin-top: 24px;
+    }
+    .config-price .now { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; color: var(--stage-text); }
+    .config-price .was { font-size: 17px; color: var(--stage-mute); text-decoration: line-through; }
+    .config-price .unit { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stage-mute); }
+
+    .config-cta {
+      width: 100%;
+      padding: 18px 24px;
+      background: var(--aw-red);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer;
+      transition: background var(--t-fast), transform var(--t-fast);
+      margin-top: 16px;
+    }
+    .config-cta:hover { background: var(--aw-red-dark); }
+    .config-partial {
+      font-size: 12.5px;
+      color: var(--stage-mute);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ═══════ NUMBERS — minimal big-numerals row ═══════ */
+    .numbers-section {
+      padding: 100px 0;
+      background: #fff;
+      border-top: 1px solid var(--aw-line);
+    }
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .number-tile {
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .number-tile + .number-tile {
+      border-left: 1px solid var(--aw-line);
+    }
+    .number-tile .num {
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: var(--aw-ink);
+      margin-bottom: 12px;
+    }
+    .number-tile .num .small { font-size: 28px; vertical-align: top; color: var(--aw-mute); margin-left: 2px; font-weight: 400; }
+    .number-tile .label {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--aw-mute);
+    }
+
+    /* ═══════ PRE-ORDER MOMENT — full-bleed ═══════ */
+    .preorder-moment {
+      padding: 140px 32px;
+      text-align: center;
+      background: linear-gradient(180deg, #0c0d10 0%, #15171c 100%);
+      color: var(--stage-text);
+    }
+    .preorder-moment .pre-chip { background: rgba(255,255,255,0.06); border-color: var(--stage-line); color: var(--stage-text); margin: 0 auto 28px; }
+    .preorder-moment h2 {
+      font-size: clamp(48px, 7vw, 92px);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -0.04em;
+    }
+    .preorder-moment .em-red { color: var(--aw-red); }
+    .preorder-moment p {
+      font-size: 19px;
+      color: var(--stage-mute);
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+    .preorder-moment .stage-cta {
+      background: var(--aw-red);
+      align-self: center;
+      margin: 0 auto;
+    }
+    .preorder-moment .stage-cta:hover { background: #fff; color: var(--aw-ink); }
+
+    /* ═══════ FAQ — compressed to 3 ═══════ */
+    .faq-section {
+      padding: 120px 0;
+      background: var(--aw-warm);
+    }
+    .faq-section .module-eyebrow {
+      text-align: center;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--aw-red);
+      margin-bottom: 16px;
+    }
+    .faq-section h2 {
+      text-align: center;
+      font-size: clamp(36px, 4.5vw, 56px);
+      max-width: 720px;
+      margin: 0 auto 64px;
+      line-height: 1.05;
+    }
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-top: 1px solid rgba(0,0,0,0.10);
+    }
+    .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.10); }
+    .faq-item summary {
+      padding: 32px 0;
+      font-weight: 700;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      gap: 16px;
+      letter-spacing: -0.01em;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--aw-red);
+      transition: transform var(--t-fast);
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-answer {
+      padding: 0 0 32px;
+      color: rgba(14,14,16,0.62);
+      font-size: 17px;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    /* footer */
+    .footer { background: var(--aw-ink); color: #c8c8c8; padding: 72px 0 32px; font-size: 13.5px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 56px; margin-bottom: 48px; }
+    .footer h4 { color: #fff; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-brand img { height: 36px; filter: brightness(0) invert(1); margin-bottom: 18px; }
+    .footer-brand p { color: #999; font-size: 13px; line-height: 1.6; }
+    .footer ul { list-style: none; padding: 0; margin: 0; }
+    .footer li { margin-bottom: 10px; }
+    .footer a { color: #c8c8c8; transition: color var(--t-fast); }
+    .footer a:hover { color: var(--aw-red); }
+    .footer-bottom { border-top: 1px solid #333; padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 12px; color: #888; }
+    .footer-social { display: flex; gap: 14px; }
+    .footer-social a svg { width: 22px; height: 22px; }
+
+    /* mobile */
+    @media (max-width: 1024px) {
+      .stage-grid { grid-template-columns: 1fr; gap: 24px; padding-top: 48px; padding-bottom: 48px; }
+      .stage-image-wrap { max-height: 50vh; aspect-ratio: 1.2; }
+      .story-grid { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+      .story-grid.reverse > :first-child { order: 0; }
+      .story-image { max-width: 380px; }
+      .spectrum { grid-template-columns: 1fr; gap: 12px; }
+      .spectrum-col.featured { transform: none; }
+      .config-grid { grid-template-columns: 1fr; gap: 36px; }
+      .numbers-grid { grid-template-columns: 1fr 1fr; }
+      .number-tile + .number-tile { border-left: none; }
+      .number-tile:nth-child(2n) { border-left: 1px solid var(--aw-line); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .nav { display: none; }
+      .header-inner { grid-template-columns: auto auto; }
+      .stage-meta { gap: 18px; }
+    }
+    @media (max-width: 640px) {
+      .stage-display { font-size: 56px; }
+      .container, .stage-grid, .story-grid, .config-grid { padding-left: 20px; padding-right: 20px; }
+      .color-story { padding: 80px 0; }
+      .preorder-moment { padding: 80px 20px; }
+      .number-tile .num { font-size: 44px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement">🚀 Pre-order AWZZF — extra <strong>10% off</strong> with Early Bird · ships end of July</div>
+  <div class="announcement-secondary">Big Discounts • Exclusive Wheel and Tire Deals</div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo"><img src="assets/atomic-wheels-brand/logo_300x.webp" alt="Atomic Wheels"></a>
+      <nav class="nav">
+        <a href="#">Wheels</a><a href="#">Tire Sets</a><a href="#">Accessories</a>
+        <a href="#">Services</a><a href="#">Gallery</a><a href="#">Reviews</a>
+      </nav>
+      <div class="header-icons">
+        <button class="icon-btn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+        <button class="icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h2l2.4 12a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 2-1.4L21 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ HERO STAGE ═══ -->
+  <section class="stage">
+    <div class="stage-grid">
+      <div class="stage-text">
+        <span class="pre-chip">Pre-order · Flow Form</span>
+        <h1 class="stage-display">AWZZF</h1>
+        <p class="stage-tagline">Lighter than cast. Engineered by Atomic Wheels. <strong>Tesla Model 3 / Y.</strong></p>
+        <div class="stage-meta">
+          <div class="stage-meta-item">
+            <span class="label">From</span>
+            <span class="value"><span class="accent">$311.85</span> / wheel</span>
+          </div>
+          <div class="stage-meta-item">
+            <span class="label">Ships</span>
+            <span class="value">End of July</span>
+          </div>
+          <div class="stage-meta-item">
+            <span class="label">Sizes</span>
+            <span class="value">18″ · 19″</span>
+          </div>
+        </div>
+        <button class="stage-cta" onclick="document.getElementById('configure').scrollIntoView({behavior:'smooth'})">Reserve yours</button>
+      </div>
+      <div class="stage-image-wrap">
+        <img id="heroImg" src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png" alt="AWZZF in Satin Bronze">
+      </div>
+    </div>
+    <div class="stage-dots">
+      <button class="stage-dot" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png" style="--c:#5b5d60;" aria-label="Satin Gunmetal"></button>
+      <button class="stage-dot active" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png" style="--c:#8a6a3d;" aria-label="Satin Bronze"></button>
+      <button class="stage-dot" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_un58tyun58tyun58-2.png" style="--c:#0a0a0a;" aria-label="Gloss Black"></button>
+      <button class="stage-dot" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_8z3czq8z3czq8z3c.png" style="--c:#1a1a1a;" aria-label="Satin Black"></button>
+    </div>
+  </section>
+
+  <!-- ═══ COLOR STORY 1 — Satin Bronze (warm) ═══ -->
+  <section class="color-story warm">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="story-eyebrow">Finish 01 · Satin Bronze</div>
+        <h2 class="story-title">Warmth, in metal.</h2>
+        <p class="story-copy">Hand-finished satin bronze with a depth that catches afternoon light. The understated pick when chrome feels loud.</p>
+      </div>
+      <div class="story-image" style="--glow: rgba(138,106,61,0.32);">
+        <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png" alt="Satin Bronze">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COLOR STORY 2 — Gloss Black (dark) ═══ -->
+  <section class="color-story dark">
+    <div class="story-grid reverse">
+      <div class="story-text">
+        <div class="story-eyebrow">Finish 02 · Gloss Black</div>
+        <h2 class="story-title">Pure. Reflective. Direct.</h2>
+        <p class="story-copy">Mirror-deep gloss black — the wheel disappears into the car body. Maximum drama for performance trims.</p>
+      </div>
+      <div class="story-image" style="--glow: rgba(238,61,72,0.20);">
+        <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_un58tyun58tyun58-2.png" alt="Gloss Black">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COLOR STORY 3 — Satin Gunmetal (cream) ═══ -->
+  <section class="color-story cream">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="story-eyebrow">Finish 03 · Satin Gunmetal</div>
+        <h2 class="story-title">Quiet, until it isn't.</h2>
+        <p class="story-copy">Mid-tone satin grey that reads as factory on white, sport on red, premium on every Tesla paint code we've tried.</p>
+      </div>
+      <div class="story-image" style="--glow: rgba(91,93,96,0.30);">
+        <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png" alt="Satin Gunmetal">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COLOR STORY 4 — Satin Black (dark) ═══ -->
+  <section class="color-story dark">
+    <div class="story-grid reverse">
+      <div class="story-text">
+        <div class="story-eyebrow">Finish 04 · Satin Black</div>
+        <h2 class="story-title">Stealth, signed AW.</h2>
+        <p class="story-copy">Soft-matte black that hides brake dust and lets the AW center cap do the talking. The sleeper choice.</p>
+      </div>
+      <div class="story-image" style="--glow: rgba(238,61,72,0.16);">
+        <img src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_8z3czq8z3czq8z3c.png" alt="Satin Black">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NUMBERS ═══ -->
+  <section class="numbers-section">
+    <div class="container">
+      <div class="numbers-grid">
+        <div class="number-tile">
+          <div class="num">2</div>
+          <div class="label">Sizes · 18″ · 19″</div>
+        </div>
+        <div class="number-tile">
+          <div class="num">4</div>
+          <div class="label">Hand-finished colors</div>
+        </div>
+        <div class="number-tile">
+          <div class="num">∞</div>
+          <div class="label">Lifetime structural warranty</div>
+        </div>
+        <div class="number-tile">
+          <div class="num">10<span class="small">%</span></div>
+          <div class="label">Early Bird pre-order</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPARISON SPECTRUM ═══ -->
+  <section class="spectrum-section">
+    <div class="container">
+      <div class="spectrum-eyebrow">The middle path</div>
+      <h2 class="spectrum-title">Cast → Flow Form → Forged</h2>
+      <p class="spectrum-lead">Where AWZZF sits in the AW lineup, and the broader market.</p>
+
+      <div class="spectrum">
+        <div class="spectrum-col">
+          <div class="spectrum-tier">Entry</div>
+          <div class="spectrum-name">Cast</div>
+          <div class="spectrum-bars">
+            <div class="spectrum-bar">
+              <div class="spectrum-bar-label"><span>Weight</span><span>Heaviest</span></div>
+              <div class="spectrum-bar-track"><div class="spectrum-bar-fill" style="width:35%"></div></div>
+            </div>
+            <div class="spectrum-bar">
+              <div class="spectrum-bar-label"><span>Strength</span><span>Standard</span></div>
+              <div class="spectrum-bar-track"><div class="spectrum-bar-fill" style="width:40%"></div></div>
+            </div>
+          </div>
+          <div class="spectrum-price">~$200–$300</div>
+        </div>
+
+        <div class="spectrum-col featured">
+          <div class="spectrum-tier">Flow Form</div>
+          <div class="spectrum-name">AWZZF</div>
+          <div class="spectrum-bars">
+            <div class="spectrum-bar">
+              <div class="spectrum-bar-label"><span>Weight</span><span>Lighter</span></div>
+              <div class="spectrum-bar-track"><div class="spectrum-bar-fill" style="width:70%"></div></div>
+            </div>
+            <div class="spectrum-bar">
+              <div class="spectrum-bar-label"><span>Strength</span><span>Densified</span></div>
+              <div class="spectrum-bar-track"><div class="spectrum-bar-fill" style="width:80%"></div></div>
+            </div>
+          </div>
+          <div class="spectrum-price">$346.50 – $410</div>
+        </div>
+
+        <div class="spectrum-col">
+          <div class="spectrum-tier">Premium</div>
+          <div class="spectrum-name">AWZZ Forged</div>
+          <div class="spectrum-bars">
+            <div class="spectrum-bar">
+              <div class="spectrum-bar-label"><span>Weight</span><span>Lightest</span></div>
+              <div class="spectrum-bar-track"><div class="spectrum-bar-fill" style="width:100%"></div></div>
+            </div>
+            <div class="spectrum-bar">
+              <div class="spectrum-bar-label"><span>Strength</span><span>Highest</span></div>
+              <div class="spectrum-bar-track"><div class="spectrum-bar-fill" style="width:100%"></div></div>
+            </div>
+          </div>
+          <div class="spectrum-price">From $615</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONFIGURATOR — compact ═══ -->
+  <section class="config-section" id="configure">
+    <div class="config-grid">
+      <div class="config-image">
+        <img id="configImg" src="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png" alt="AWZZF">
+      </div>
+      <div class="config-text">
+        <div class="config-text-eyebrow">Configure & reserve</div>
+        <h3>Pick your size and finish.</h3>
+
+        <div class="config-pickers">
+          <div>
+            <div class="config-line"><span class="label">Size</span><span class="value" id="cfgSize">18″ × 8.5″ +35</span></div>
+            <div class="config-row" id="sizeRow" style="margin-top:14px;">
+              <button class="pill active" data-size="18">18″ × 8.5″</button>
+              <button class="pill" data-size="19">19″ × 9.5″</button>
+            </div>
+          </div>
+          <div>
+            <div class="config-line"><span class="label">Finish</span><span class="value" id="cfgColor">Satin Bronze</span></div>
+            <div class="config-row" id="colorRow" style="margin-top:14px;">
+              <button class="pill swatch-pill active" data-color="Satin Bronze" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png" style="--c:#8a6a3d;">Bronze</button>
+              <button class="pill swatch-pill" data-color="Satin Gunmetal" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png" style="--c:#5b5d60;">Gunmetal</button>
+              <button class="pill swatch-pill" data-color="Gloss Black" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_un58tyun58tyun58-2.png" style="--c:#0a0a0a;">Gloss Black</button>
+              <button class="pill swatch-pill" data-color="Satin Black" data-img="assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_8z3czq8z3czq8z3c.png" style="--c:#1a1a1a;">Satin Black</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="config-price">
+          <span class="now" id="cfgPrice">$332.10</span>
+          <span class="was" id="cfgWas">$369.00</span>
+          <span class="unit">per wheel · Early Bird</span>
+        </div>
+
+        <button class="config-cta" id="reserveBtn">Reserve — pre-order with 10% off</button>
+        <p class="config-partial">Or <strong style="color:var(--stage-text);">$10 per wheel</strong> partial — pay rest when wheels arrive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PRE-ORDER MOMENT ═══ -->
+  <section class="preorder-moment">
+    <span class="pre-chip">Limited window · Early Bird</span>
+    <h2>Reserve <span class="em-red">now.</span><br>Drive in <span class="em-red">August.</span></h2>
+    <p>Wheels land at our Denton, TX warehouse end of July. Early Bird pre-orders ship in the order they were placed, at 10% off, with no balance until the wheels arrive.</p>
+    <button class="stage-cta" onclick="document.getElementById('configure').scrollIntoView({behavior:'smooth'})">Reserve yours</button>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="module-eyebrow">Three questions</div>
+      <h2>Things people ask first.</h2>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>What is flow-forming?</summary>
+          <div class="faq-answer">A cast wheel blank gets spun on a mandrel while rollers compress the rim under heat. Aluminum grain aligns and densifies — same load rating as the cast it started from, with less material. Lighter wheel, stronger rim.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How does this compare to AWZZ Forged?</summary>
+          <div class="faq-answer">AWZZ is forged from a solid billet — lightest and stiffest wheel we make, top-tier price. AWZZF gets you closer to that on a daily-driven Tesla 3/Y for meaningfully less. Both ship with our Lifetime Structural Warranty and 50%-off accidental damage program.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What does "ships end of July" mean exactly?</summary>
+          <div class="faq-answer">Wheels arrive at our Denton, TX warehouse from the factory by end of July. Once they land, we charge the remaining balance (if you used $10/wheel partial payment) and ship to you within 2 business days, in the order pre-orders were placed.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/atomic-wheels-brand/logo_300x.webp" alt="Atomic Wheels">
+          <p>Premium custom forged & flow-form wheels. Engineered, QC'd, and warrantied by Atomic Wheels in Denton, TX.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul><li><a href="#">Wheels</a></li><li><a href="#">Tire Sets</a></li><li><a href="#">Photo Gallery</a></li><li><a href="#">Reviews</a></li></ul>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <ul><li><a href="#">Fitment Guides</a></li><li><a href="#">Warranty</a></li><li><a href="#">Shipping</a></li><li><a href="#">Contact Us</a></li></ul>
+        </div>
+        <div>
+          <h4>Atomic Wheels</h4>
+          <ul><li>4408 Worthington Dr</li><li>Denton, TX</li><li><a href="mailto:info@atomic-wheels.com">info@atomic-wheels.com</a></li></ul>
+          <div class="footer-social" style="margin-top:14px;">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8H6v4h3v12h5V12h3.6l.4-4h-4V6c0-.6.4-1 1-1h3V1h-4c-2.8 0-5 2.2-5 5v2z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.5c-.2-1.6-1.4-2.8-3-3C16.8 5 12 5 12 5s-4.8 0-7 .5c-1.6.2-2.8 1.4-3 3C1.5 10.5 1.5 12 1.5 12s0 1.5.5 3.5c.2 1.6 1.4 2.8 3 3 2.2.5 7 .5 7 .5s4.8 0 7-.5c1.6-.2 2.8-1.4 3-3 .5-2 .5-3.5.5-3.5s0-1.5-.5-3.5zM10 15.5v-7l6 3.5-6 3.5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Copyright © 2026 Atomic Wheels</span>
+        <span>Prototype · v3 · 2026-04-29 · cinematic</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* prices — same prototype mapping as v1/v2 */
+    const PRICES = {
+      '18|Satin Black': 346.50, '18|Satin Gunmetal': 346.50, '18|Satin Bronze': 369.00, '18|Gloss Black': 369.00,
+      '19|Satin Black': 385.00, '19|Satin Gunmetal': 385.00, '19|Satin Bronze': 410.00, '19|Gloss Black': 410.00,
+    };
+    const COLORS = {
+      'Satin Bronze':   'assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_2m3zwh2m3zwh2m3z.png',
+      'Satin Gunmetal': 'assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_txq4gztxq4gztxq4.png',
+      'Gloss Black':    'assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_un58tyun58tyun58-2.png',
+      'Satin Black':    'assets/atomic-wheels-brand/awzzf-photos/Gemini_Generated_Image_8z3czq8z3czq8z3c.png',
+    };
+
+    const state = { size: '18', color: 'Satin Bronze' };
+    const fmt = n => '$' + n.toFixed(2);
+
+    function updateAll() {
+      const base = PRICES[state.size + '|' + state.color];
+      const eb = base * 0.9;
+      document.getElementById('cfgPrice').textContent = fmt(eb);
+      document.getElementById('cfgWas').textContent = fmt(base);
+      document.getElementById('cfgSize').textContent = state.size === '18' ? '18″ × 8.5″ +35' : '19″ × 9.5″ +35';
+      document.getElementById('cfgColor').textContent = state.color;
+      const img = COLORS[state.color];
+      document.getElementById('heroImg').src = img;
+      document.getElementById('configImg').src = img;
+      // dots in hero
+      document.querySelectorAll('.stage-dot').forEach(d => {
+        d.classList.toggle('active', d.dataset.img === img);
+      });
+    }
+
+    /* hero dots */
+    document.querySelectorAll('.stage-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        const colorEntry = Object.entries(COLORS).find(([n, p]) => p === dot.dataset.img);
+        if (colorEntry) {
+          state.color = colorEntry[0];
+          updateAll();
+          // sync configurator pills
+          document.querySelectorAll('#colorRow .pill').forEach(p => {
+            p.classList.toggle('active', p.dataset.color === state.color);
+          });
+        }
+      });
+    });
+
+    /* size pills */
+    document.querySelectorAll('#sizeRow .pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('#sizeRow .pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        state.size = pill.dataset.size;
+        updateAll();
+      });
+    });
+
+    /* color pills */
+    document.querySelectorAll('#colorRow .pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('#colorRow .pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        state.color = pill.dataset.color;
+        updateAll();
+      });
+    });
+
+    document.getElementById('reserveBtn').addEventListener('click', () => {
+      const eb = PRICES[state.size + '|' + state.color] * 0.9;
+      alert(`PROTOTYPE — Reserve flow:\n\n${state.size}″ × ${state.size === '18' ? '8.5' : '9.5'}″ +35\nFinish: ${state.color}\nEarly Bird price: ${fmt(eb)} per wheel\n\n(In production: opens cart with selected variant.)`);
+    });
+
+    updateAll();
+  </script>
+</body>
+</html>
